@@ -17,7 +17,7 @@ public class Main {
         Employee secondEmployee = new Employee(
                 "Hristo",
                 "Todorov",
-                36,
+                5,
                 "male",
                 "candidate",
                 1200,

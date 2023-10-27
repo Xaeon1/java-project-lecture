@@ -41,11 +41,17 @@ public abstract class Store {
         Employee[] selectedEmployees = new Employee[employees.length];
         int index = 0;
         for (Employee e : employees) {
-            if (e.getSalary() >= 1000 && e.getSalary() <= 5000) {
-                if (e.getAge() >= 18 && e.getAge() < 65) {
-                    selectedEmployees[index] = e;
-                    index++;
+            try {
+                if (e.getSalary() >= 1000 && e.getSalary() <= 5000) {
+                    if (e.getAge() >= 18 && e.getAge() < 65) {
+                        selectedEmployees[index] = e;
+                        index++;
+                    } else {
+                        throw new EmployeeSelectionException("Employees must be between 18 and 65 years old.");
+                    }
                 }
+            } catch (EmployeeSelectionException ex) {
+                System.out.println(ex.getMessage());
             }
         }
         for (int i = 0; i < index; i++) {
